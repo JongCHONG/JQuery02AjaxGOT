@@ -19,11 +19,25 @@ $(function() {
                             tab_search.push(element)
                         }
                     })
-                    afficherlist(tab_search);
+                    afficherlist(tab_search)
                 // })
+            })
+            $("#random").click(function(){
+                var random = Math.floor(Math.random() * (data.length - 0 + 1) + 0)
+                console.log(random)
+            })
+            $("#trier").click(function(){
+                var arrayTri = data.sort(SortArray)
+                afficherlist(arrayTri)
             })
         }
     })
+
+    function SortArray(x, y){
+        if (x.fullName < y.fullName) {return -1;}
+        if (x.fullName > y.fullName) {return 1;}
+        return 0;
+    }
 
     function afficherlist(list) {
         personnage.innerHTML = ""

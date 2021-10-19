@@ -5,26 +5,26 @@ $(function() {
         url: 'https://thronesapi.com/api/v2/Characters',
         success: function(data, statuts, response) {
             afficherlist(data)
-            $('.form').submit(function(e) {
-                e.preventDefault()
-                var input = document.getElementById('search').value
-                var tab_search = []
-                // var searchFullName = data.filter(function(element){
-                //     return element.fullName === input
+            $(".search input").keyup(function() {
+                var input = $("#search").val()
+                // $('.form').submit(function(e) {
+                //     e.preventDefault()
+                    // var input = $("#search").val()
+                    var tab_search = []
+                    // var searchFullName = data.filter(function(element){
+                    //     return element.fullName === input
+                    // })
+                    data.forEach(element => {
+                        if (element.fullName.includes(input)) {
+                            tab_search.push(element)
+                        }
+                    })
+                    afficherlist(tab_search);
                 // })
-                data.forEach(element => {
-                    if (element.fullName.includes(input)) {
-                        tab_search.push(element)
-                    }
-                })
-                afficherlist(tab_search);
             })
         }
     })
-    $("#exercise input").keyup(function() {
-        var test_input = $("#search").val()
-        console.log(test_input);
-    })
+
     function afficherlist(list) {
         personnage.innerHTML = ""
         list.forEach(element => {

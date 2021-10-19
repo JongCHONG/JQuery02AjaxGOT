@@ -12,8 +12,18 @@
 <body>
     <div class="container">
         <h1>Game of Throne</h1>
-        <div class="list-personnage">
-            <div class="row text-center"></div>
+        <form onsubmit="rechercher(); return false;">  
+            <div class="row search">
+                <div class="col-lg-11 col-md-11">
+                    <input type="text" id="search" placeholder="Rechercher par fullname...">
+                </div>
+                <div class="col-lg-1 col-md-1">
+                    <button type="submit">Rechercher</button>
+                </div>
+            </div>
+        </form>
+        <div class="list-personnage ">
+            <div class="row personnage"></div>
         </div>
     </div>
     <script src="./jquery.js"></script>

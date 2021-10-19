@@ -1,7 +1,6 @@
 var personnage = document.getElementsByClassName('personnage')[0]
 
 $(function() {
-    var test_data = []
     $.ajax({
         url: 'https://thronesapi.com/api/v2/Characters',
         success: function(data, statuts, response) {
@@ -22,7 +21,10 @@ $(function() {
             })
         }
     })
-    
+    $("#exercise input").keyup(function() {
+        var test_input = $("#search").val()
+        console.log(test_input);
+    })
     function afficherlist(list) {
         personnage.innerHTML = ""
         list.forEach(element => {

@@ -11,7 +11,7 @@ $(function() {
         }
     })
     $(".search input").keyup(function() {
-        var input = $("#search").val()
+        var input = $("#search").val().toLowerCase()
         // $('.form').submit(function(e) {
         //     e.preventDefault()
             // var input = $("#search").val()
@@ -20,7 +20,7 @@ $(function() {
             //     return element.fullName === input
             // })
             dataGlobal.forEach(element => {
-                if (element.fullName.includes(input)) {
+                if (element.fullName.toLowerCase().includes(input)) {
                     tab_search.push(element)
                 }
             })
@@ -43,9 +43,9 @@ $(function() {
     }
 
     function afficherlist(list) {
-        personnage.innerHTML = ""
+        $('.personnage').empty()
         list.forEach(element => {
-            personnage.innerHTML = personnage.innerHTML + `
+            $('.personnage').append(`
                 <div class="col-lg-4 col-md-4 char">
                     <div class="border">
                         <img src="${element.imageUrl}" alt="">
@@ -54,9 +54,24 @@ $(function() {
                     </div>
                 </div>
             
-            `
+            `)
         })
     }
+    // function afficherlist(list) {
+    //     personnage.innerHTML = ""
+    //     list.forEach(element => {
+    //         personnage.innerHTML = personnage.innerHTML + `
+    //             <div class="col-lg-4 col-md-4 char">
+    //                 <div class="border">
+    //                     <img src="${element.imageUrl}" alt="">
+    //                     <p>${element.fullName}</p>
+    //                     <p>${element.title}</p>
+    //                 </div>
+    //             </div>
+            
+    //         `
+    //     })
+    // }
 })
 
 
